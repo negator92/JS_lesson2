@@ -22,10 +22,6 @@ window.onload = function (){
   LoadNow(1);
 }
 
-var usd;
-localStorage.setItem('usd', '');
-console.log(usd)
-
 var getJSON = function(url, callback) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', url, true);
@@ -45,13 +41,8 @@ getJSON('https://www.cbr-xml-daily.ru/daily_json.js', function(err, data) {
   if (err !== null) {
     console.log(err)
   } else {
-      var json = JSON.parse(data);
-      var usdValue = json.Valute.USD.Value;
-      usd = usdValue;
-      console.log(usd)
-      localStorage.setItem('usd', usdValue);
-    }
-  });
-console.log(usd)
-
-console.log(window.localStorage);
+    var json = JSON.parse(data);
+    var usd = json.Valute.USD.Value;
+    localStorage.usd = usd;
+  }
+});
