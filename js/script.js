@@ -1,39 +1,31 @@
-// function sleep(milliseconds) {
-//   const date = Date.now();
-//   let currentDate = null;
-//   do {
-//     currentDate = Date.now();
-//   } while (currentDate - date < milliseconds);
-// }
+var loader;
 
-var canvas = document.getElementById('canvas'),
-    context = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-context.strokeStyle = 'grey';
-context.lineWidth = 2;
-context.strokeRect(50, 50, window.innerWidth-100, window.innerHeight-100);
-
-function preload(arrayOfImages) {
-    for(i = 0 ; i < arrayOfImages.length ; i++)
-       {
-   var img = new Image();
-           img.src = arrayOfImages[i];
-       }
+function LoadNow(opacity) {
+  if(opacity <= 0) {
+    displayContent();
+  }
+  else {
+    loader.style.opacity = opacity;
+    window.setTimeout(function () {
+      LoadNow(opacity - 0.05)
+    }, 50);
+  }
 }
-var getElements = function(tagName, attribute, value, callback) {
-  var tags = window.document.getElementsByTagName(tagName);
-  for (var i=0; i < tags.length; i++) {
-    var tag = tags[i];
-    if (tag.getAttribute(attribute) == value) {
-      callback(tag);
-    }
-  };
-};
 
-preload(['/img/loader.gif']);
-// sleep(2200);
+function displayContent(){
+  loader.style.display = 'none';
+  document.getElementById('content').style.display = 'block';
+}
+
+window.onload = function (){
+  var date = Date.now();
+  var curDate = null;
+  do {
+      curDate = Date.now();
+  } while (curDate-date < 2200);
+  loader = document.getElementById('preloader');
+  LoadNow(1);
+}
 
 var getJSON = function(url, callback) {
     var xhr = new XMLHttpRequest();
