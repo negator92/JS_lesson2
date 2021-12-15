@@ -3,7 +3,7 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100vh;
-    background: #EEE2DC repeat 50% 50%;
+    background: #EEE2DC 50% 50%;
     background-size: cover;
 }
 
@@ -14,9 +14,4 @@ html, body {
     z-index: 1;
     overflow: visible;
     background: #fff url(../img/loader.gif) no-repeat center center;
-}
-
-canvas {
-    position: absolute;
-
 }
