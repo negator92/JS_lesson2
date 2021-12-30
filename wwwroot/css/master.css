@@ -21,8 +21,6 @@ html, body {
 }
 
 #content {
-    justify-content: center;
-    align-items: center;
     width: 50%;
     margin: 20px;
     padding: 10px;
@@ -38,14 +36,8 @@ table {
     margin: 15px 0px 0px 0px;
     width: 100%;
     table-layout: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
     border: 2px solid #BAB2B5;
-    text-align: center; 
-    vertical-align: middle;
-}
+    text-align: center;}
 
 tr {
     color: #123C69;
